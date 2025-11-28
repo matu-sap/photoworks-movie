@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>サービス内容 | Photo Works</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #ddd;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 18px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    nav li a {
+      text-decoration: none;
+      color: #333;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    nav li a:hover {
+      border-bottom-color: #333;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 20px auto 40px;
+      padding: 40px 20px 60px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .lead {
+      text-align: center;
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 40px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 18px;
+      border-left: 4px solid #333;
+      padding-left: 8px;
+      margin-bottom: 10px;
+    }
+
+    .service-detail {
+      background: #fdfdfd;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      margin-bottom: 20px;
+    }
+
+    .service-detail h3 {
+      margin-top: 0;
+      font-size: 16px;
+      color: #222;
+    }
+
+    .service-detail p {
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .back-wrap {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 18px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .back-btn:hover {
+      background: #555;
+    }
+
+    footer {
+      font-size: 12px;
+      text-align: center;
+      color: #888;
+      margin-top: 40px;
+      padding: 16px 10px;
+      border-top: 1px solid #eee;
+    }
+
+    /* スマホ用 */
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      nav ul {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 13px;
+      }
+
+      main {
+        margin: 10px auto 30px;
+        padding: 30px 16px 40px;
+        border-radius: 0;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .lead {
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">PhotoWorks Movie</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="service.html">SERVICE</a></li>
+          <li><a href="studio.html">STUDIO</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li><a href="price.html">PRICE</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>サービス詳細</h1>
+    <p class="lead">Photo Worksが提供するムービー制作の各メニューをご紹介します。</p>
+
+    <section>
+      <h2>ウェディング・レタームービー</h2>
+      <div class="service-detail">
+        <h3>大切な想いを、映像で伝える。</h3>
+        <p>
+          結婚式での感動のワンシーンに。花嫁・花婿からご両親へのお手紙や、
+          ご友人からのメッセージを、写真やBGMとともに1本のムービーに仕上げます。
+        </p>
+        <p>
+          <strong>構成例：</strong>オープニング → 写真スライド → 手紙ナレーション → エンディング<br>
+          <strong>納品形式：</strong>MP4（オンライン納品またはDVDオーサリング対応）<br>
+          <strong>上映時間：</strong>約3～5分（ご希望に応じ調整可）
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>プロフィールムービー</h2>
+      <div class="service-detail">
+        <h3>おふたりの“歩み”を写真でつなぐ。</h3>
+        <p>
+          幼少期から現在までを一枚一枚の写真で表現し、音楽とともにストーリーを描きます。
+          ナレーションやコメント挿入にも対応可能です。
+        </p>
+        <p>
+          <strong>構成例：</strong>オープニング → 幼少期 → 学生時代 → 出会い → 現在<br>
+          <strong>納品形式：</strong>MP4（オンライン納品またはDVDオーサリング対応）<br>
+          <strong>上映時間：</strong>約3～5分（ご希望に応じ調整可）<br>
+<strong>動画の挿入：</strong>短く編集して挿入可（別途承ります）
+
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>記念日・送別ムービー</h2>
+      <div class="service-detail">
+        <h3>感謝の気持ちを伝えるメッセージムービー。</h3>
+        <p>
+          送別会、退職祝い、卒業記念、周年イベントなど、多様なシーンでご利用いただけます。
+          写真・コメント・音楽を使って心温まる映像を制作します。
+        </p>
+        <p>
+          <strong>構成例：</strong>タイトル → メッセージ → 写真スライド → エンディング<br>
+          <strong>納品形式：</strong>MP4（オンライン納品またはDVDオーサリング対応）<br>          
+          <strong>納期目安：</strong>素材受け取りから7～10日ほど<br> 
+          
+          <strong>その他：</strong>手書き風などのフォントの変更や背景などの変更もご希望に近い形で仕上げます
+        </p>
+      </div>
+    </section>
+
+    <div class="back-wrap">
+      <a href="index.html" class="back-btn">← トップページへ戻る</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; Photo Works. All Rights Reserved.
+  </footer>
+</body>
+</html>
