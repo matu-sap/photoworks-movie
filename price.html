@@ -2,91 +2,336 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Price | Photoworks Movie</title>
-
+  <title>PRICE | 料金プラン | Photo Works</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body{font-family: Arial, sans-serif; margin:0; background:#f4f4f4;}
-    header{background:#222;color:#fff;text-align:center;padding:15px;font-size:22px;}
-    nav{background:#333;padding:10px;text-align:center;}
-    nav a{color:#fff;text-decoration:none;margin:0 15px;}
-    nav a:hover{text-decoration:underline;}
-
-    h1{text-align:center;margin:30px 0;font-size:26px;font-weight:bold;}
-
-    .price-box{
-        background:#fff;
-        max-width:800px;
-        margin:auto;
-        padding:30px;
-        border-radius:10px;
-        box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      line-height: 1.7;
     }
 
-    .plan{
-        border-bottom:1px solid #ddd;
-        padding:20px 0;
-    }
-    .plan:last-child{border-bottom:none;}
-
-    .plan h2{
-        font-size:22px;
-        margin-bottom:5px;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .price{
-        font-size:26px;
-        font-weight:bold;
-        color:#ff4e4e;
-        margin-bottom:10px;
+    /* ヘッダー（他ページと統一） */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #e0e0e0;
     }
 
-    .desc{
-        font-size:14px;
-        line-height:1.6em;
-        color:#555;
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    footer{text-align:center;padding:20px;background:#222;color:#fff;margin-top:40px;}
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 18px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    nav a:hover {
+      border-bottom-color: #333;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    h1 {
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .lead {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .plan-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      padding: 18px 16px 20px;
+      font-size: 14px;
+    }
+
+    .plan-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .plan-type {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .plan-price {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .plan-price span {
+      font-size: 12px;
+      font-weight: 400;
+      color: #777;
+      margin-left: 4px;
+    }
+
+    .plan-meta {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .plan-note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 6px;
+    }
+
+    h2 {
+      font-size: 18px;
+      border-left: 4px solid #333;
+      padding-left: 8px;
+      margin: 10px 0 12px;
+    }
+
+    .option-list {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      padding: 18px 16px 20px;
+      font-size: 14px;
+    }
+
+    .option-item {
+      margin-bottom: 8px;
+    }
+
+    .option-name {
+      font-weight: 700;
+    }
+
+    .option-price {
+      font-weight: 700;
+    }
+
+    .small-note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    .btn-area {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #333;
+      color: #fff;
+      padding: 10px 18px;
+      font-size: 14px;
+      border-radius: 999px;
+    }
+
+    .btn:hover {
+      background: #555;
+    }
+
+    footer {
+      font-size: 12px;
+      text-align: center;
+      color: #888;
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+      padding: 18px 10px;
+      background: #fafafa;
+    }
+
+    /* スマホ用 */
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 13px;
+      }
+
+      main {
+        padding: 30px 16px 40px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .plan-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+<header>
+  <div class="nav-inner">
+    <div class="logo">PhotoWorks Movie</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="service.html">SERVICE</a></li>
+        <li><a href="studio.html">STUDIO</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="price.html">PRICE</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<header>Photoworks Movie - Price</header>
+<main>
+  <h1>料金プラン</h1>
+  <p class="lead">
+    実際のご予算や内容に応じて調整可能な目安の料金です。<br>
+    正式なお見積りは、用途・写真枚数・上映時間などを伺ったうえでご案内します。
+  </p>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="price.html">Price</a>
-</nav>
+  <!-- メインプラン -->
+  <div class="plan-grid">
+    <div class="plan-card">
+      <div class="plan-name">レタームービー</div>
+      <div class="plan-type">花嫁・花婿からご家族へ／友人や仲間から送別レターなど</div>
+      <div class="plan-price">¥12,000〜 <span>（税込・目安）</span></div>
+      <div class="plan-meta">● 上映時間：約3〜5分</div>
+      <div class="plan-meta">● 写真枚数目安：20〜30枚</div>
+      <div class="plan-meta">● 納品形式：MP4（オンライン納品）</div>
+      <div class="plan-note">
+        手紙の文章づくりのサポート、コメント挿入、BGM編集込み。<br>
+        DVD納品はオプションにて対応。
+      </div>
+    </div>
 
-<h1>Price List</h1>
+    <div class="plan-card">
+      <div class="plan-name">プロフィールムービー</div>
+      <div class="plan-type">結婚式・周年記念など、おふたりの歩み紹介</div>
+      <div class="plan-price">¥15,000〜 <span>（税込・目安）</span></div>
+      <div class="plan-meta">● 上映時間：約5〜7分</div>
+      <div class="plan-meta">● 写真枚数目安：30〜40枚</div>
+      <div class="plan-meta">● 納品形式：MP4（オンライン納品）</div>
+      <div class="plan-note">
+        タイトル／章構成／コメント挿入／BGM編集込み。<br>
+        DVD納品はオプションにて対応。
+      </div>
+    </div>
 
-<div class="price-box">
-
-  <div class="plan">
-    <h2>■ メモリアル・プロフィールムービー</h2>
-    <p class="price">¥18,000〜</p>
-    <p class="desc">写真20〜40枚 / BGM1曲 / テロップ入力込み / シンプル構成</p>
+    <div class="plan-card">
+      <div class="plan-name">記念・送別ムービー</div>
+      <div class="plan-type">送別会・退職祝い・卒業・サプライズムービー</div>
+      <div class="plan-price">¥15,000〜 <span>（税込・目安）</span></div>
+      <div class="plan-meta">● 上映時間：約3〜6分</div>
+      <div class="plan-meta">● 写真枚数目安：15〜30枚</div>
+      <div class="plan-meta">● 納品形式：MP4（オンライン納品）</div>
+      <div class="plan-note">
+        テロップメッセージ・簡易アニメーション・BGM編集込み。<br>
+        DVD納品はオプションにて対応。
+      </div>
+    </div>
   </div>
 
-  <div class="plan">
-    <h2>■ エモーショナル・レタームービー</h2>
-    <p class="price">¥28,000〜</p>
-    <p class="desc">写真30〜60枚 / BGM1〜2曲 / 手紙テロップ / 感動演出多め</p>
+  <!-- オプション -->
+  <h2>オプション料金（目安）</h2>
+  <div class="option-list">
+    <div class="option-item">
+      <span class="option-name">DVDオーサリング・ディスク納品：</span>
+      <span class="option-price">+ ¥3,000〜</span><br>
+      テレビ再生用DVDの作成。パッケージ印刷は要相談。　注意）DVDの映像比率は4：3となり上下に余白が入ります（背景調整可）。
+    </div>
+
+    <div class="option-item">
+      <span class="option-name">修正対応：</span>
+      <span class="option-price">ラフ提案１回／修正2回まで無料</span><br>
+      3回目以降は内容により +¥1,000〜 を目安。※商品により異なります。
+    </div>
+
+    <div class="option-item">
+      <span class="option-name">特急納品（5日以内）：</span>
+      <span class="option-price">+ ¥5,000〜</span><br>
+      スケジュール状況によりお受けできない場合があります。
+    </div>
+
+    <div class="option-item">
+      <span class="option-name">BGM：フリー音源に限り３曲まで無料</span>
+      <span class="option-price">+１曲 ¥1,000〜</span><br>
+      基本は著作権フリー音源を使用します。
+ 市販曲をご希望の場合は、お客様または施設側で使用許諾をご確認・取得ください。<br>
+ ISUM等（著作権の手続き）の申請代行は行っておりません。 
+    </div>
+
+    <div class="option-item">
+      <span class="option-name">スタジオ撮影セットプラン：</span>
+      <span class="option-price">別途お見積り</span><br>
+      提携スタジオでの撮影とムービー制作をセットにしたプランです。
+    </div>
+
+    <p class="small-note">
+      ※ 通常郵便（ケース入り）で発送。＊速達・日時指定はオプション対応。＊DVD発送後の修正は承っておりません。<br>
+      ※ 詳細なお見積りは、用途・写真枚数・上映時間・ご希望納期などを伺ったうえでご案内いたします。
+    </p>
   </div>
 
-  <div class="plan">
-    <h2>■ フルカスタムムービー</h2>
-    <p class="price">¥45,000〜</p>
-    <p class="desc">写真・動画自由 / 納期・構成オーダー対応 / 高度演出</p>
+  <div class="btn-area">
+    <a class="btn" href="contact.html">お問い合わせ・お見積りはこちら</a>
   </div>
+</main>
 
-</div>
-
-<footer>
-  © 2025 Photoworks Movie
-</footer>
-
+<footer>&copy; Photo Works. All Rights Reserved.</footer>
 </body>
 </html>
