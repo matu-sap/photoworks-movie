@@ -2,41 +2,437 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photoworks - Movie</title>
+  <title>Photoworks Movie | メモリアルムービー & フォトサービス</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background:#fafafa;}
-    header { background:#222; color:#fff; padding:15px; text-align:center; font-size:22px;}
-    nav { background:#333; padding:10px; text-align:center;}
-    nav a { color:#fff; text-decoration:none; margin:0 15px; font-size:16px; }
-    nav a:hover { text-decoration:underline; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
 
-    .container { max-width:900px; margin:auto; padding:40px 20px; text-align:center;}
-    h1 { font-size:28px; font-weight:bold; margin-bottom:20px; }
-    p { font-size:18px; color:#333; line-height:1.6;}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    footer { text-align:center; padding:20px; background:#222; color:#fff; margin-top:40px;}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 18px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    nav li a {
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav li a:hover {
+      border-bottom-color: #333;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, #ffe9d5, #f5f5f5);
+      padding: 60px 20px 40px;
+    }
+
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 3vw + 12px, 34px);
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.8);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .btn-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      background: #333;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-outline {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid #999;
+      background: transparent;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .hero-image-frame {
+      border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 4 / 3;
+      position: relative;
+    }
+
+    .hero-image-frame video,
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+
+    .hero-tag {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 6px 10px;
+      font-size: 11px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+    }
+
+    section {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      border-left: 4px solid #333;
+      padding-left: 8px;
+    }
+
+    .section-lead {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      font-size: 14px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #555;
+      font-size: 13px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 10px;
+    }
+
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ddd;
+      aspect-ratio: 4 / 3;
+      position: relative;
+    }
+
+    .gallery-item span {
+      position: absolute;
+      left: 8px;
+      bottom: 6px;
+      font-size: 11px;
+      color: #fff;
+      background: rgba(0,0,0,0.55);
+      padding: 3px 6px;
+      border-radius: 999px;
+    }
+
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .contact-box {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      font-size: 14px;
+    }
+
+    .contact-row {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      border-top: 1px solid #e0e0e0;
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      padding: 14px 10px 20px;
+      background: #fafafa;
+    }
+
+    /* スマホ用レイアウト */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 30px;
+      }
+
+      .cards,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      nav ul {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
-
 <body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">PhotoWorks Movie</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="service.html">SERVICE</a></li>
+          <li><a href="studio.html">STUDIO</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li><a href="price.html">PRICE</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<header>Photoworks Movie</header>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">MOVIE PRODUCTION</div>
+        <h1 class="hero-title">写真と言葉を“動き”にする。<br>心に届くメモリアルムービー。</h1>
+        <p class="hero-sub">
+          ウェディング、送別、プロフィール、記念行事、冠婚葬祭、など<br>
+          PhotoworksMovieは企画〜編集までワンストップ。撮影が必要な場合は提携スタジオで対応します。
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" onclick="location.href='gallery.html'">ムービー作品を見る</button>
+          <button class="btn-outline" onclick="location.href='studio.html'">撮影スタジオ & メニュー</button>
+        </div>
+        <div class="hero-note"></div>
+      </div>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="price.html">Price</a>
-</nav>
+      <!-- 右側：動画サンプル（MP4のまま） -->
+      <div class="hero-image-frame">
+        <video src="ProfileMovie_C.mp4"
+               autoplay
+               muted
+               loop
+               playsinline></video>
+        <div class="hero-tag">Movie Sample / Photo Works</div>
+      </div>
+    </div>
+  </section>
 
-<div class="container">
-  <h1>Welcome to Photoworks Movie</h1>
-  <p>メモリアルムービー・プロフィールムービーなど<br>心に残る映像制作を行っています。</p>
-</div>
+  <main>
+    <section id="about">
+      <h2 class="section-title">PhotoWorks Movie について</h2>
+      <p class="section-lead">
+        北海道を拠点に、写真とメッセージを組み合わせたメモリアルムービーやプロフィールムービーを制作しています。<br>
+        「伝えたい想いはあるけれど、うまく言葉にできない」「写真の選び方や構成が不安」──そんな方のために、丁寧に一緒にかたちにしていきます。
+      </p>
+    </section>
 
-<footer>
-  © 2025 Photoworks Movie
-</footer>
+    <section id="service">
+      <h2 class="section-title">サービス内容</h2>
+      <p class="section-lead">
+        下記は一例です。実際のメニューや料金に合わせて、文言は後から自由に書き換えられます。
+      </p>
+      <div class="cards">
+        <div class="card">
+          <h3>ウェディング・レタームービー</h3>
+          <p>
+            花嫁・花婿からご家族へ、またはご友人から新郎新婦へ。<br>
+            手紙と写真を組み合わせた感動演出ムービーを制作します。
+          </p>
+        </div>
+        <div class="card">
+          <h3>プロフィールムービー</h3>
+          <p>
+            幼少期から現在までの歩みを、写真とテキストで紹介。<br>
+            会場スクリーンでの上映を想定した構成・タイミングで仕上げます。
+          </p>
+        </div>
+        <div class="card">
+          <h3>各種記念ムービー</h3>
+          <p>
+            送別会・退職祝い・周年記念など。<br>
+            写真スライドショーやメッセージムービーなど、目的に合わせてご提案します。
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <section id="gallery">
+      <h2 class="section-title">ギャラリー</h2>
+      <p class="section-lead">
+        実際の作品の一部をダイジェストでご紹介します。<br>
+        音声ありのフルバージョンはギャラリーページからご覧いただけます。
+      </p>
+
+      <!-- ギャラリーページへのボタン -->
+      <div style="margin-bottom: 16px;">
+        <a href="gallery.html" class="btn-outline">ギャラリーを見る</a>
+      </div>
+
+      <div class="gallery">
+        <!-- 画像サンプル1 -->
+        <div class="gallery-item">
+          <img src="sample1.jpeg" alt="Wedding Sample">
+          <span>Wedding Letter</span>
+        </div>
+
+        <!-- 画像サンプル2 -->
+        <div class="gallery-item">
+          <img src="sample2.jpeg" alt="Profile Sample">
+          <span>Profile Movie</span>
+        </div>
+
+        <!-- 画像サンプル3 -->
+        <div class="gallery-item">
+          <img src="sample3.jpeg" alt="Memorial Sample">
+          <span>Memorial / Farewell</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-lead">
+        ご相談・ご依頼は、メールやココナラ、YouTubeチャンネルからお気軽にお問い合わせください。<br>
+        各種サンプルをご用意しております。
+      </p>
+      <div class="contact-box">
+        <div class="contact-row">
+          📩 ご相談・お見積りは、下記いずれかの方法でお願いいたします。
+        </div>
+        <div class="contact-row">
+          ・メール：photoworks.matsuno@gmail.com<br>
+          ・ココナラ：<a href="https://coconala.com/users/4661261" target="_blank" rel="noopener">
+  ▶ ココナラ出品ページはこちら</a><br>
+          ・YouTube：<a href="https://www.youtube.com/@photoworks_movie" target="_blank" rel="noopener">https://www.youtube.com/@photoworks_movie</a>
+        </div>
+        <div class="contact-row">
+          ご希望の納期や、写真枚数、上映時間のイメージなどが決まっていれば、あわせてお知らせいただけるとスムーズです。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; Photo Works. All Rights Reserved.
+  </footer>
 </body>
 </html>
