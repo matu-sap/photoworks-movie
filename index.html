@@ -278,15 +278,30 @@
 
       .nav-inner {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;           /* 中央寄せに変更 */
         justify-content: center;
       }
 
       nav ul {
         width: 100%;
-        flex-wrap: wrap;
-        gap: 10px;
+        flex-wrap: wrap;               /* 折り返し */
+        gap: 8px 10px;
         font-size: 13px;
+        justify-content: center;       /* 横方向も中央寄せ */
+      }
+
+      /* スマホ時はボタン風に見せる */
+      nav li a {
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-bottom: none;           /* 下線は消す */
+      }
+
+      nav li a:hover {
+        border-bottom: none;
+        background: #f0f0f0;
       }
     }
   </style>
@@ -324,15 +339,16 @@
         <div class="hero-note"></div>
       </div>
 
-     <!-- 右側：動画サンプル（YouTube埋め込み版） --> 
-<div class="hero-image-frame">
-  <iframe 
-    src="https://www.youtube.com/embed/uAWD8clu3YA?autoplay=1&mute=1&controls=0&loop=1&playlist=uAWD8clu3YA&modestbranding=1&rel=0"
-    style="width:100%;height:100%;border:0;"
-    allow="autoplay; encrypted-media"
-  ></iframe>
-  <div class="hero-tag">Movie Sample / Photo Works</div>
-</div>
+      <!-- 右側：動画サンプル（YouTube埋め込み版） --> 
+      <div class="hero-image-frame">
+        <iframe 
+          src="https://www.youtube.com/embed/uAWD8clu3YA?autoplay=1&mute=1&controls=0&loop=1&playlist=uAWD8clu3YA&modestbranding=1&rel=0"
+          style="width:100%;height:100%;border:0;"
+          allow="autoplay; encrypted-media"
+        ></iframe>
+        <div class="hero-tag">Movie Sample / Photo Works</div>
+      </div>
+
     </div>
   </section>
 
