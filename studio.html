@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>STUDIO | 提携スタジオ紹介 & 撮影メニュー | Photo Works</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 18px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    nav a:hover {
+      border-bottom-color: #333;
+    }
+
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 6px 0 6px;
+      text-align: center;
+    }
+
+    .lead {
+      text-align: center;
+      color: #666;
+      margin-bottom: 26px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      padding: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 18px;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      border: 1px solid #ddd;
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: #fff;
+      margin-bottom: 8px;
+      letter-spacing: .08em;
+    }
+
+    h2 {
+      font-size: 18px;
+      border-left: 4px solid #333;
+      padding-left: 8px;
+      margin: 18px 0 10px;
+    }
+
+    .row {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .price {
+      font-weight: 700;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background: #555;
+    }
+
+    .thumb {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #eee;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    footer {
+      font-size: 12px;
+      text-align: center;
+      color: #888;
+      padding: 16px 10px;
+      border-top: 1px solid #eee;
+      margin-top: 36px;
+      background: #fafafa;
+    }
+
+    /* スマホ用 */
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      nav ul {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 13px;
+      }
+
+      .wrap {
+        padding: 24px 16px 40px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">PhotoWorks Movie</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="service.html">SERVICE</a></li>
+          <li><a href="studio.html">STUDIO</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li><a href="price.html">PRICE</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <span class="tag">PARTNER STUDIO</span>
+    <h1>提携スタジオ紹介 & 撮影メニュー</h1>
+    <p class="lead">Photo Works のムービー制作と連動し、撮影が必要な場合は提携スタジオで対応します。</p>
+
+    <!-- スタジオ概要 -->
+    <section class="card" style="margin-bottom:18px">
+      <div class="grid">
+        <div>
+          <h2>スタジオ概要</h2>
+          <div class="row"><strong>スタジオ名：</strong>フォトスタジオToi</div>
+          <div class="row"><strong>特徴：</strong>自然光／背景紙各種／簡易ヘアメイク可／駐車場あり</div>
+          <div class="row"><strong>所在地：</strong>札幌市中央区北1条西4丁目札幌グランドホテル本館3階（アクセス：札幌駅徒歩7分）</div>
+          <div class="row"><strong>営業時間：</strong>10:00–19:00（不定休）</div>
+          <div class="row note">※スタジオはイメージ画像。</div>
+          <a class="btn" href="contact.html">撮影のご相談・空き確認</a>
+        </div>
+        <div class="thumb">
+          <!-- スタジオ写真のダミー -->
+          <img src="sample_studio1.jpeg" alt="スタジオイメージ">
+        </div>
+      </div>
+    </section>
+
+    <!-- 撮影メニュー -->
+    <section class="card">
+      <h2>撮影メニュー（一部）</h2>
+      <div class="grid2">
+        <div class="card">
+          <div class="row"><strong>プロフィール撮影</strong></div>
+          <div class="row">所要時間・カット数ご相談ください</div>
+          <div class="row price">別途お見積もり</div>
+          <div class="note">背景紙 or 自然光／簡易レタッチ込／追加カット可</div>
+        </div>
+        <div class="card">
+          <div class="row"><strong>家族写真</strong></div>
+          <div class="row">所要時間・カット数ご相談ください</div>
+          <div class="row price">別途お見積もり</div>
+          <div class="note">衣装自由／小物持込可／台紙プリント追加可</div>
+        </div>
+        <div class="card">
+          <div class="row"><strong>ブライダル前撮り（ホテル内・屋外）</strong></div>
+          <div class="row">所要時間・カット数ご相談ください</div>
+          <div class="row price">別途お見積もり</div>
+          <div class="note">ヘアメイク・衣装提携オプション可</div>
+        </div>
+<div class="card">
+          <div class="row"><strong>集合写真（スタジオ）</strong></div>
+          <div class="row">最大80名様対応（目安）</div>
+          <div class="row price">別途お見積もり</div>
+          <div class="note">ヘアメイク・衣装提携オプション可</div>
+        </div>
+<div class="card">
+          <div class="row"><strong>個人写真</strong></div>
+          <div class="row">所要時間・カット数ご相談ください</div>
+          <div class="row price">別途お見積もり</div>
+          <div class="note">額縁手配・ヘアメイク・衣装提携オプション可</div>
+        </div>
+<div class="card">
+          <div class="row"><strong>出張撮影</strong></div>
+          <div class="row">所要時間・カット数ご相談ください</div>
+          <div class="row price">別途お見積もり</div>
+          <div class="note">出張料別途・台紙手配可</div>
+        </div>
+
+       
+      </div>
+      <div class="row" style="margin-top:10px">
+        <a class="btn" href="contact.html">見積依頼・日程相談</a>
+      </div>
+    </section>
+
+    <!-- 連動の流れ -->
+    <section style="margin-top:18px" class="card">
+      <h2>撮影〜ムービー制作の流れ</h2>
+      <ol>
+        <li>ご相談（用途・納期・ご予算）</li>
+        <li>撮影可否と候補日時の確認（提携スタジオ）</li>
+        <li>撮影実施（写真／必要に応じ別途動画も可）</li>
+        <li>写真選定 → ムービー編集 → 納品（MP4 / DVD対応可）</li>
+      </ol>
+      <p class="note">【オンライン相談承ります】Zoom（ズーム）などを利用して、全国どこからでもご相談いただけます。</p>
+    </section>
+  </div>
+
+  <footer>&copy; Photo Works. All Rights Reserved.</footer>
+</body>
+</html>
